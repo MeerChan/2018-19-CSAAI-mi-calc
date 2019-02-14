@@ -1,4 +1,4 @@
-funtion main() {
+function main() {
 
   var display = document.getElementById('display');
 
