@@ -4,7 +4,7 @@ funtion main() {
 
   var boton1 = document.getElementById('boton1');
   boton1.onclick = () => {
-    display.innerHTML = boton1;
+    display.innerHTML = boton1.innerHTML;
   }
   var boton2 = document.getElementById('boton2');
   var boton3 = document.getElementById('boton3');
