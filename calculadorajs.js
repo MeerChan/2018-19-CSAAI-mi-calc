@@ -1,4 +1,4 @@
-fucntion main() {
+function main() {
   console.log("hola");
 
   var boton = document.getElementById('boton');
