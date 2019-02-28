@@ -1,10 +1,15 @@
+ console.log("hola")
+
 function main() {
 
+ console.log("hola")
+
+
   var calc = {
-    num1: null,
-    num2: null,
-    op: null,
-    total: null,
+    num1: "",
+    num2: "",
+    op: "",
+    total: "",
     estado: "init",
 
     gui: {
@@ -31,44 +36,53 @@ function main() {
 
       botonigual: document.getElementById('botonigual'),
     },
-    boton_dig = function(dig){
-      if (this.estado = "init"){
-        this.gui.display.innerHTML = dig;
-        this.estado = "introduciendonum1";
-        this.num1 = dig;
-      }
-      if (this.estado = "introduciendonum1"){
-        this.gui.display.innerHTML += dig;
-        this.estado = "introduciendonum1";
-        this.num1 += dig;
-      }
-      if (this.estado = "operandointroducido"){
-        this.gui.display.innerHTML = dig;
-        this.estado = "introduciendonum2";
-        this.num2 += dig;
-      }
-      if (this.estado = "introduciendonum2"){
-        this.gui.display.innerHTML += dig;
-        this.estado = "introduciendonum2";
-        this.num2 += dig;
-        }
-    },
-    boton_op = function(operando){
-      if (this.estado = "introduciendonum1"){
-        this.gui.display.innerHTML += operando;
-        this.estado = "operandointroducido";
-        this.op = operando;
-        }
-    },
-    boton_igual = function (igual){
-      if (this.estado = "introduciendonum2"){
-        this.total = num1 + op + num2;
-        this.gui.display.innerHTML = Eval(total);
-        this.estado = "init";
+    boton_dig: function(dig){
+      switch (this.estado) {
+        case "init":
+          this.gui.display.innerHTML = dig;
+          this.estado = "introduciendonum1";
+          this.num1 += dig;
+          break;
+        case "intrduciendonum1":
+          this.gui.display.innerHTML += dig;
+          this.estado = "introduciendonum1";
+          this.num1 += dig;
+          break;
+        case "introduciendonum2":
+          this.gui.display.innerHTML += dig;
+          this.estado = "introduciendonum2";
+          this.num2 += dig;
+          break;
+        default:
+          console.log("error");
       }
     },
-  },
-
+    boton_op: function(operador){
+      switch (this.estado) {
+        case "introduciendonum1":
+            this.gui.display.innerHTML += operador;
+            this.estado = "introduciendonum2";
+            this.op += operador;
+          break;
+        default:
+          console.log("error");
+      }
+    },
+    boton_igual: function(){
+      switch (this.estado) {
+        case "introduciendonum2":
+          this.total = this.num1 +this.op + this.num2;
+          this.gui.display.innerHTML = eval(this.total);
+          this.estado = "init";
+          this.num2 = "";
+          this.num1 = "";
+          this.op = "";
+          break;
+        default:
+          console.log("error");
+     }
+   }
+  }
   calc.gui.digitales.boton1.onclick = () => {
     calc.boton_dig("1");
   },
@@ -96,7 +110,6 @@ function main() {
   calc.gui.digitales.boton9.onclick = () => {
     calc.boton_dig("9");
   },
-
   calc.gui.operandos.botonsuma.onclick = () => {
     calc.boton_op("+");
   },
@@ -109,8 +122,7 @@ function main() {
   calc.gui.operandos.botondivide.onclick = () => {
     calc.boton_op("/");
   },
-
-  calc.gui.boton_igual.onclick = () => {
-    calc.boton_igual("=");
-  },
+  calc.gui.botonigual.onclick = () => {
+    calc.boton_igual();
+  }
 }
