@@ -7,7 +7,7 @@ function main() {
     total: null,
     estado: "init",
 
-    gui = {
+    gui: {
       display: document.getElementById('display'),
       digitales: {
         boton1: document.getElementById('boton1'),
