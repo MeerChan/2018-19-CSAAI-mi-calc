@@ -5,7 +5,7 @@ function main() {
     num2: null,
     op: null,
     total: null,
-    estado = "init";
+    estado = "init",
 
     gui = {
       display: document.getElementById('display'),
@@ -30,7 +30,7 @@ function main() {
 
 
       botonigual: document.getElementById('botonigual'),
-    }
+    },
     boton_dig = function(dig){
       if (this.estado = "init"){
         this.gui.display.innerHTML = dig;
@@ -51,70 +51,66 @@ function main() {
         this.gui.display.innerHTML += dig;
         this.estado = "introduciendonum2";
         this.num2 += dig;
-      }
-    }
+        }
+    },
     boton_op = function(operando){
       if (this.estado = "introduciendonum1"){
         this.gui.display.innerHTML += operando;
         this.estado = "operandointroducido";
         this.op = operando;
-      }
-    }
+        }
+    },
     boton_igual = function (igual){
       if (this.estado = "introduciendonum2"){
         this.total = num1 + op + num2;
         this.gui.display.innerHTML = Eval(total);
         this.estado = "init";
       }
-    }
-  }
+    },
+  },
 
-  calc.gui.boton1.onclick = () => {
+  calc.gui.digitales.boton1.onclick = () => {
     calc.boton_dig("1");
-  }
+  },
+  calc.gui.digitales.boton2.onclick = () => {
+    calc.boton_dig("2");
+  },
+  calc.gui.digitales.boton3.onclick = () => {
+    calc.boton_dig("3");
+  },
+  calc.gui.digitales.boton4.onclick = () => {
+    calc.boton_dig("4");
+  },
+  calc.gui.digitales.boton5.onclick = () => {
+    calc.boton_dig("5");
+  },
+  calc.gui.digitales.boton6.onclick = () => {
+    calc.boton_dig("6");
+  },
+  calc.gui.digitales.boton7.onclick = () => {
+    calc.boton_dig("7");
+  },
+  calc.gui.digitales.boton8.onclick = () => {
+    calc.boton_dig("8");
+  },
+  calc.gui.digitales.boton9.onclick = () => {
+    calc.boton_dig("9");
+  },
 
-  boton2.onclick = () => {
-    display.innerHTML = boton2.innerHTML
-  }
+  calc.gui.operandos.botonsuma.onclick = () => {
+    calc.boton_op("+");
+  },
+  calc.gui.operandos.botonresta.onclick = () => {
+    calc.boton_op("-");
+  },
+  calc.gui.operandos.botonmultiplica.onclick = () => {
+    calc.boton_op("*");
+  },
+  calc.gui.operandos.botondivide.onclick = () => {
+    calc.boton_op("/");
+  },
 
-
-  boton3.onclick = () => {
-    display.innerHTML = boton3.innerHTML
-  }
-
-  var boton4 = document.getElementById('boton4');
-  boton4.onclick = () => {
-    display.innerHTML = boton4.innerHTML
-  }
-
-  var boton5 = document.getElementById('boton5');
-  boton5.onclick = () => {
-    display.innerHTML = boton5.innerHTML
-  }
-
-  var boton6 = document.getElementById('boton6');
-  boton6.onclick = () => {
-    display.innerHTML = boton6.innerHTML
-  }
-
-  var boton7 = document.getElementById('boton7');
-  boton7.onclick = () => {
-    display.innerHTML = boton7.innerHTML
-  }
-
-  var boton8 = document.getElementById('boton8');
-  boton8.onclick = () => {
-    display.innerHTML = boton8.innerHTML
-  }
-
-  var boton9 = document.getElementById('boton9');
-  boton9.onclick = () => {
-    display.innerHTML = boton9.innerHTML
-  }
-
-  var boton0 = document.getElementById('boton0');
-  boton0.onclick = () => {
-    display.innerHTML = boton0.innerHTML
-  }
-  boton_dig(calc,dig)
+  calc.gui.boton_igual.onclick = () => {
+    calc.boton_igual("=");
+  },
 }
