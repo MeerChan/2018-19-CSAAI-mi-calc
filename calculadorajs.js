@@ -5,7 +5,7 @@ function main() {
     num2: null,
     op: null,
     total: null,
-    estado = "init",
+    estado: "init",
 
     gui = {
       display: document.getElementById('display'),
