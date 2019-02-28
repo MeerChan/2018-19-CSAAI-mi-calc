@@ -110,6 +110,10 @@ function main() {
   calc.gui.digitales.boton9.onclick = () => {
     calc.boton_dig("9");
   },
+  calc.gui.digitales.boton0.onclick = () => {
+    calc.boton_dig("0");
+  },
+
   calc.gui.operandos.botonsuma.onclick = () => {
     calc.boton_op("+");
   },
