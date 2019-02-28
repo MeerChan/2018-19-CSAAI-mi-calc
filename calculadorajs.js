@@ -43,7 +43,7 @@ function main() {
           this.estado = "introduciendonum1";
           this.num1 += dig;
           break;
-        case "intrduciendonum1":
+        case "introduciendonum1":
           this.gui.display.innerHTML += dig;
           this.estado = "introduciendonum1";
           this.num1 += dig;
